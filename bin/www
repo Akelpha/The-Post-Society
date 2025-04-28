@@ -4,9 +4,9 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('the-post-society:server');
-var http = require('http');
+import  app from '../app';
+import debug from 'debug';('the-post-society:server');
+import http from ('http');
 
 /**
  * Get port from environment and store in Express.
