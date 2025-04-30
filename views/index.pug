@@ -1,5 +1,34 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+//-   ul
+//-     @if(posts && posts.length > 0)
+
+//-     @each(post in posts)
+
+//-     li
+//-       a href="{{ route('posts.show', { id: post.id }) }}"{{ post.title }}/a
+//-       p{{ post.author?.fullName }}/p
+//-       p{{ post.formattedCreatedDate }}/p
+
+
+//-       div
+//-         img src="{{ post.imageUrl }}" alt="image"
+//-       div
+//-       div
+//-         a href="{{ route('posts.update', { id: post.id }) }}" Modify/a
+//-         form action="{{ route('posts.destroy', { id: post.id }) }}" method="POST"
+
+//-           input type="hidden" name="_csrf" value="{{ csrfToken }}"
+//-           input type="hidden" name="_method" value="DELETE"
+//-           button type="submit" onclick="return confirm('Are you sure?')"Delete/button
+        
+//-       div
+//-     li
+
+//-     @end
+//-     @else
+//-     li No Articles
+//-     @end
+ 
