@@ -1,17 +1,12 @@
 doctype html
 html
-  head
-    title= title
-    link(rel="shortcut icon", href="/images/favicon.ico", type="image/x-icon")
-    link(rel='stylesheet', href='/stylesheets/style.css')
+  include components/head.pug
   body(class="bg-dark font-global")
     header
-
       include components/header.pug
     main
-      
       block content 
     footer 
-
       include components/footer.pug
     
+
