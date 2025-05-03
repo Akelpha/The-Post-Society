@@ -3,10 +3,10 @@
 
 @theme {
   --font-global: "Turret Road", sans-serif;
-  --font-size: 16px;
+  --font-size: "16px";
   --color-primary: #fab500;
   --color-secondary: #0b0b0b;
   --color-accent: #250049;
   --color-dark: #180037;
-  --color-deep-dark: #040015;
+  --color-deepdark: #040015;
 }
