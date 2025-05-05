@@ -18,4 +18,20 @@ model User {
   createdAt DateTime @default(now())
   email     String   @unique
   name      String?
+  username  String   @unique
+  password  String   @unique
+  authorId   String?  @unique
+  posts     Post[]
+  postsCount Int     @default(0)
+
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  Int?
 }

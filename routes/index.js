@@ -1,4 +1,5 @@
 import { Router } from "express";
+import prisma from "./prisma.js";
 var router = Router();
 
 /* GET home page. */
