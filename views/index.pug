@@ -1,13 +1,36 @@
 extends layout
 
 block content
-    
-    div(class="relative group h-[500px] p-4")
-        img(src="/images/media.svg", alt="Blog", class="w-full h-full")
-        span(class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white bg-dark bg-opacity-70 text-sm px-3 py-2 rounded opacity-0 group-hover:opacity-100 transition") Click to create a post
 
+    let posts = 
+        [{
+            id: 1,
+            title: "First Post",
+        }]
+            
+        ul
+            if (posts && posts.length > 0) 
+                li
+                    a(href=/posts.show, { id: post.id }) {{ post.title }}
+                    p{{ post.author?.fullName }}
+                    p{{ post.formattedCreatedDate }}
+                    div
+                        img(src="{{ post.imageUrl }}", alt="image")
+                    div
+                    div
+                        a(href="{{ route('posts.update', { id: post.id }) }}") Modify
+                        form(action="{{ route('posts.destroy', { id: post.id }) }}", method="POST")
+                            input(type="hidden", name="_csrf", value="{{ csrfToken }}")
+                            input(type="hidden", name="_method", value="DELETE")
+                            button(type="submit", onclick="return confirm('Are you sure?')") Delete
+            else
+                div(class="relative group h-[500px] p-4")
+                    img(src="/images/media.svg", alt="Blog", class="w-full h-full")
+                    a(href="/posts/create", class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white bg-dark bg-opacity-70 text-sm px-3 py-2 rounded opacity-0 group-hover:opacity-100 transition") Create a post
+        
 
-
+       
+           
 //-   ul
 //-     @if(posts && posts.length > 0)
 
