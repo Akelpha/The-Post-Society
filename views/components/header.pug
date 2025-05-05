@@ -1,10 +1,10 @@
-header(class="bg-dark text-primary flex flex-row justify-between gap-4 m-12 p-6 font-global rounded-lg")
- div(class="flex flex-col text-justify gap-3")
-  h1(class="text-3xl text-white font-bold") The Post Society
-  h2(class="text-2xl text-white font-bold italic") The best place to share your thoughts and ideas
- nav
+header(class="bg-dark  flex flex-row justify-between gap-4 m-12 p-6 font-global rounded-lg")
+ div(class="flex flex-col text-justify")
+  h1(class="text-3xl font-bold ") The Post Society
+   span(class="text-sm font-normal italic")  - a society for sharing your thoughts and ideas
+ nav(class="flex flex-row gap-4")
   img(src="/images/menu.svg", alt="menu burger", class="w-8 h-8 *:hover:cursor-pointer md:hidden")
-  ul(class="hidden gap-[10px] m-[50px] md:block")
+  ul(class="hidden gap-[10px] m-[50px] md:block text-lg font-medium flex-row")
    li
      a(href="/") Home
    li
@@ -12,10 +12,6 @@ header(class="bg-dark text-primary flex flex-row justify-between gap-4 m-12 p-6 
    li
      a(href='/profile') Profile
    li
-     a(href="/login") Login
-   li
-     a(href="/register") Register
-   li
-     a(href="/logout") Logout 
+     a(href='/connexion') Connexion
 
  
