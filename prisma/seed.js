@@ -8,7 +8,10 @@ async function main() {
       name: "Alice",
       email: "alice@prisma.io",
       posts: {
-        create: { title: "Join us for Prisma Day 2020" },
+        create: {
+          title: "Join us for Prisma Day 2020",
+          content: "It's pretty good to use prisma these days like a ORM.",
+        },
       },
     },
   });
@@ -21,7 +24,7 @@ async function main() {
       posts: {
         create: [
           { title: "Follow Prisma on Twitter" },
-          { title: "Prisma on YouTube" },
+          { content: "It will allow you to know everything about us." },
         ],
       },
     },
