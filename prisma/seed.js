@@ -1,12 +1,23 @@
 import { PrismaClient } from "@prisma/client";
+import * as bcrypt from "bcrypt";
 const prisma = new PrismaClient();
-
+const roundsOfHashing = 10;
 async function main() {
+  const passwordalice = await bcrypt.hash("password-alice", roundsOfHashing);
+  const passwordbob = await bcrypt.hash("password-bob", roundsOfHashing);
   // Your example code
-  const alice = await prisma.user.create({
+  const alice = await prisma.user.upsert({
     data: {
       name: "Alice",
-      email: "alice@prisma.io",
+      where: { email: "alice@prisma.io" },
+      update: {
+        password: passwordalice,
+      },
+      create: {
+        email: "alice@prisma.io",
+        name: "Alice Adams",
+        password: passwordalice,
+      },
       posts: {
         create: {
           title: "Join us for Prisma Day 2020",
@@ -20,7 +31,15 @@ async function main() {
   const bob = await prisma.user.create({
     data: {
       name: "Bob",
-      email: "bob@prisma.io",
+      where: { email: "bob@prisma.io" },
+      update: {
+        password: passwordbob,
+      },
+      create: {
+        email: "bob@prisma.io",
+        name: "Bob Ruheni",
+        password: passwordbob,
+      },
       posts: {
         create: [
           { title: "Follow Prisma on Twitter" },
