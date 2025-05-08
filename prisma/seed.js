@@ -7,17 +7,14 @@ async function main() {
   const passwordbob = await bcrypt.hash("password-bob", roundsOfHashing);
   // Your example code
   const alice = await prisma.user.upsert({
-    data: {
-      name: "Alice",
-      where: { email: "alice@prisma.io" },
-      update: {
-        password: passwordalice,
-      },
-      create: {
-        email: "alice@prisma.io",
-        name: "Alice Adams",
-        password: passwordalice,
-      },
+    where: { email: "alice@prisma.io" },
+    update: {
+      password: passwordalice,
+    },
+    create: {
+      email: "alice@prisma.io",
+      name: "Alice Adams",
+      password: passwordalice,
       posts: {
         create: {
           title: "Join us for Prisma Day 2020",
@@ -28,18 +25,15 @@ async function main() {
   });
 
   // Add more seed data as needed
-  const bob = await prisma.user.create({
-    data: {
-      name: "Bob",
-      where: { email: "bob@prisma.io" },
-      update: {
-        password: passwordbob,
-      },
-      create: {
-        email: "bob@prisma.io",
-        name: "Bob Ruheni",
-        password: passwordbob,
-      },
+  const bob = await prisma.user.upsert({
+    where: { email: "bob@prisma.io" },
+    update: {
+      password: passwordbob,
+    },
+    create: {
+      email: "bob@prisma.io",
+      name: "Bob Ruheni",
+      password: passwordbob,
       posts: {
         create: [
           { title: "Follow Prisma on Twitter" },

@@ -5,8 +5,8 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 datasource db {
-  url      = env("postgresql://postgres:Kerene108!@localhost:5432/ThePostSociety")
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
