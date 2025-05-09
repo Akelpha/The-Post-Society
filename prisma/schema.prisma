@@ -10,8 +10,12 @@ datasource db {
 }
 
 generator client {
-    provider = "prisma-client-js"
-    output   = "app/generated/prisma/client"
+    provider               = "prisma-client"
+    output                 = "../src/generated/prisma"
+    runtime                = "nodejs"
+    moduleFormat           = "esm"
+    generatedFileExtension = "js"
+    importFileExtension    = "js"
 }
 
 model User {
@@ -36,4 +40,9 @@ model Post {
     authorId   Int?
     created_at DateTime @default(now())
     updated_at DateTime @updatedAt
+}
+
+enum Role {
+    USER
+    ADMIN
 }
