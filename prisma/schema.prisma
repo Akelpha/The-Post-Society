@@ -14,8 +14,8 @@ generator client {
     output                 = "../src/generated/prisma"
     runtime                = "nodejs"
     moduleFormat           = "esm"
-    generatedFileExtension = "js"
-    importFileExtension    = "js"
+    generatedFileExtension = "ts"
+    importFileExtension    = "ts"
 }
 
 model User {

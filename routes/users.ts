@@ -1,5 +1,6 @@
 import { Router } from "express";
-import prisma from "./prisma/prisma.js";
+// Adjust the path to the correct Prisma client file
+import prisma from "../prisma/prisma.js";
 var router = Router();
 
 /* GET users listing. */
