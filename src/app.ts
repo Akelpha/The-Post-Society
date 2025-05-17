@@ -1,3 +1,4 @@
+
 import createError from "http-errors";
 import express, { json, urlencoded } from "express";
 
@@ -7,10 +8,10 @@ import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 
-import indexRouter from "./routes/index.js";
-import usersRouter from "./routes/users.js";
+import indexRouter from "./routes/index";
+import usersRouter from "./routes/users";
 
-var app = express();
+const app = express();
 
 // view engine setup
 const __filename = fileURLToPath(import.meta.url);
@@ -33,7 +34,7 @@ app.use(function (req, res, next) {
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function (err: { message: any; status: any; }, req: { app: { get: (arg0: string) => string; }; }, res: { locals: { message: any; error: any; }; status: (arg0: any) => void; render: (arg0: string) => void; }, next: any) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};

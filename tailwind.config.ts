@@ -1,3 +1,3 @@
-export const content = ["./views/**/*.pug", "./src/**/*.js"];
+export const content = ["./views/**/*.pug", "./src/**/*.ts"];
 
 export const plugins = [];
