@@ -4,11 +4,16 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDirs": ["./src", "./prisma"],
+    "allowJs": true,
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@prisma/*": ["prisma/*"]
+    }
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "./prisma/**/*.ts"],
   "exclude": ["node_modules"]
 }

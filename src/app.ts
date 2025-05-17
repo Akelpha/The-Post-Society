@@ -8,7 +8,7 @@ import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 
-import indexRouter from "./routes/index";
+import indexRouter from "./routes/posts";
 import usersRouter from "./routes/users";
 
 const app = express();

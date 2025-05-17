@@ -4,9 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "ts-node-dev src/index.ts",
-    "dev": "ts-node-dev src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx tsx --env-file=.env --watch  src/index.ts"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
@@ -29,7 +27,7 @@
     "@types/bcrypt": "^5.0.2",
     "@types/cookie-parser": "^1.4.8",
     "@types/debug": "^4.1.12",
-    "@types/express": "^5.0.1",
+    "@types/express": "^5.0.2",
     "@types/http-errors": "^2.0.4",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.15.17",
