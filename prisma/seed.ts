@@ -1,5 +1,5 @@
 // This file is used to seed your database with initial data.
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from 'src/generated/prisma'
 import * as bcrypt from "bcrypt";
 const prisma = new PrismaClient();
 const roundsOfHashing = 10;
@@ -14,6 +14,7 @@ async function main() {
     create: {
       email: 'alice@prisma.io',
       name: 'Alice',
+      username: 'alice',
       password: passwordalice,
       posts: {
         create: {
@@ -32,6 +33,7 @@ async function main() {
     create: {
       email: 'bob@prisma.io',
       name: 'Bob',
+      username: 'bob',
       password: passwordbob,
       posts: {
         create: [

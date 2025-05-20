@@ -11,6 +11,7 @@ datasource db {
 
 generator client {
     provider               = "prisma-client"
+    previewFeatures        = ["driverAdapters"]
     output                 = "../src/generated/prisma"
     runtime                = "nodejs"
     moduleFormat           = "esm"
@@ -24,7 +25,7 @@ model User {
     email      String   @unique
     name       String?
     username   String   @unique
-    password   String   @unique
+    password   String
     authorId   String?  @unique
     posts      Post[]
     postsCount Int      @default(0)
