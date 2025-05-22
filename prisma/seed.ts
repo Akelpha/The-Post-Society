@@ -20,6 +20,7 @@ async function main() {
         create: {
           title: 'Check out Prisma with Next.js',
           content: 'https://www.prisma.io/nextjs',
+          imageUrl: 'https://v1rtl.site/blog/nexus.jpg',
           published: true,
         },
       },

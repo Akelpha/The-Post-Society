@@ -1,33 +1,19 @@
 import { Router } from "express";
 import prisma from "@prisma/prisma.js";
+import { createPost } from "src/controllers/postController";
+import { showPosts } from "src/controllers/postController";
 var router = Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "The Post Society" });
+  res.render("index");
 });
 
 // Get post page
-router.get('/feed', async (req, res) => {
-  const posts = await prisma.post.findMany({
-    where: { published: true },
-    include: { author: true },
-  })
-  res.json(posts)
-})
+router.get('/feed', showPosts)
+
 // Create post
-router.post(`/post`, async (req, res) => {
-  const { title, content, authorEmail } = req.body
-  const result = await prisma.post.create({
-    data: {
-      title,
-      content,
-      published: false,
-      author: { connect: { email: authorEmail } },
-    },
-  })
-  res.json(result)
-})
+router.post(`/post`, createPost)
 // Update post
 router.put('/publish/:id', async (req, res) => {
   const { id } = req.params
